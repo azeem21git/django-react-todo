@@ -5,9 +5,9 @@ const App = () => {
   const [books,setBooks] = useState([])
   const fetchBook=async()=>{
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/books')
+      const response = await fetch('http://127.0.0.1:8000/api/books/')
       const data=await response.json()
-      setBooks(response.data)
+      setBooks(data)
     } catch (error) {
       
     }
@@ -36,15 +36,14 @@ const App = () => {
             </tr>
           </thead>
 
-          <tbody>
-            <tr id='books.id'>
-              {
-                 books.map((item)=>{
-                  <td>{item.tittle}</td>
-                 })
-              }
-            </tr>
-          </tbody>
+         <tbody>
+  {books.map((item) => (
+    <tr key={item.id}> 
+      <td>{item.tittle}</td> 
+      <td>{item.release_Year}</td>
+    </tr>
+  ))}
+</tbody>
         </table>
       
     </>
