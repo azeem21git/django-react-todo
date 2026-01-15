@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
 
@@ -13,6 +13,10 @@ const App = () => {
     }
   }
 
+  useEffect(()=>{
+        fetchBook()
+  },[])
+
   return (
     <>
       <h1>Book shop Booling</h1>
@@ -26,8 +30,10 @@ const App = () => {
       
         <table>
           <thead>
-            <td>Book Tittle</td>
+            <tr>
+              <td>Book Tittle</td>
             <td>Release Date</td>
+            </tr>
           </thead>
 
           <tbody>
